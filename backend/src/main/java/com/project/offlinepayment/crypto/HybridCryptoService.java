@@ -117,10 +117,10 @@ public class HybridCryptoService {
     }
 
     /**
-     * SHA-256 of the ciphertext. THIS is the idempotency key.
+     * SHA-256 of the ciphertext. This is the idempotency key.
      *
      * Why ciphertext and not packetId? Because intermediates can rewrite packetId
-     * but cannot forge a valid ciphertext for a different payload. Two delivered
+     * but cannot change a valid ciphertext for a different payload. Two delivered
      * copies of the same packet have identical ciphertexts, hence identical hashes.
      */
     public String hashCiphertext(String base64Ciphertext) throws Exception {
