@@ -1,0 +1,300 @@
+/* ============================================================
+   App.css
+   All styling for the dashboard lives in this single file.
+   The layout uses CSS Grid: 3 columns on desktop, which stacks
+   into 1 column on small / mobile screens (see media query at
+   the bottom).
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: #f3f4f8;
+  color: #1f2330;
+}
+
+/* ----- Header ----- */
+.header {
+  background: #0f1c3f;
+  color: #fff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon {
+  font-size: 20px;
+}
+
+/* ----- Page layout: 3 responsive columns ----- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr; /* left | middle (wider) | right */
+  gap: 16px;
+  padding: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ----- Card (used by every component) ----- */
+.card {
+  background: #fff;
+  border: 1px solid #e4e6ef;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card-title {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.muted-text {
+  color: #8a8d99;
+  font-size: 12px;
+}
+
+/* ----- Form fields ----- */
+.field-label {
+  display: block;
+  font-size: 12px;
+  color: #5a5d6a;
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d8dae3;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* ----- Buttons ----- */
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-primary { background: #2563eb; }
+.btn-success { background: #16a34a; }
+.btn-purple  { background: #7c3aed; }
+.btn-warning { background: #f59e0b; }
+
+.btn-header {
+  background: #2563eb;
+  padding: 8px 14px;
+}
+
+/* ----- Server info rows ----- */
+.server-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+/* ----- Badges / tags ----- */
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.badge-green { background: #e6f4ea; color: #1e7e34; }
+.badge-red   { background: #fdecea; color: #c0392b; }
+.badge-gray  { background: #eef0f5; color: #555; }
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.tag-blue   { color: #2563eb; }
+.tag-purple { color: #7c3aed; }
+
+/* ----- Mesh network device chain ----- */
+.device-chain {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.connector-line {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  width: 1px;
+  height: 20px;
+  border-left: 2px dotted #c7c9d6;
+}
+
+.device-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.icon-blue   { background: #dbeafe; }
+.icon-green  { background: #dcfce7; }
+.icon-orange { background: #fef3c7; }
+
+.device-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.device-name-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.device-right {
+  text-align: right;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.info-banner {
+  background: #eaf3ff;
+  color: #2563a0;
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+/* ----- Last action result ----- */
+.result-box {
+  position: relative;
+  background: #eafaf0;
+  border: 1px solid #c4ecd4;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.result-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.result-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+}
+
+/* ----- Tables (Accounts + Transactions) ----- */
+.table-wrapper {
+  overflow-x: auto; /* allows horizontal scroll on small screens instead of breaking layout */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.data-table th {
+  text-align: left;
+  color: #8a8d99;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 8px 8px;
+  border-bottom: 1px solid #f3f3f6;
+  white-space: nowrap;
+}
+
+.view-all-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* ============================================================
+   RESPONSIVE: stack columns vertically on tablets / phones
+   ============================================================ */
+@media (max-width: 1000px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* single column on smaller screens */
+  }
+
+  .header-title {
+    font-size: 15px;
+  }
+}
