@@ -20,7 +20,7 @@ function App() {
   const [accounts, setAccounts] = useState([]);
   const [meshDevices, setMeshDevices] = useState([]);
   const [transactions, setTransactions] = useState([]);
-  const [serverInfo, setServerInfo] = useState({ idempotencyCacheSize: 0});
+  const [serverInfo, setServerInfo] = useState({ idempotencyCacheSize: 0 });
   const [lastAction, setLastAction] = useState(null); // { title, details }
   const [lastUpdated, setLastUpdated] = useState('');
   const [isLoading, setIsLoading] = useState(false);;
@@ -100,7 +100,7 @@ function App() {
       const res = await api.flushBridge();
 
       setLastAction({
-        title: res.message || 'Flush Bridge completed',
+        title: 'Flush Bridge completed',
         details: [
           `Uploads Attempted: ${res.uploadsAttempted}`,
         ],
@@ -109,6 +109,8 @@ function App() {
       const [txData, accountsData] = await Promise.all([api.getTransactions(), api.getAccounts()]);
       setTransactions(txData);
       setAccounts(accountsData);
+      const data = await api.getServerInfo()
+      setServerInfo({ idempotencyCacheSize: data.idempotencyCacheSize});
       touchLastUpdated();
     } finally {
       setIsLoading(false);
