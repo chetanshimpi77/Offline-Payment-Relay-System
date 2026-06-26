@@ -279,7 +279,6 @@ upi-offline-mesh/
         │
         ├── controller/                      ── HTTP layer
         │   ├── ApiController.java           All REST endpoints
-        │   └── DashboardController.java     Serves the dashboard HTML at /
         │
         └── config/
             └── AppConfig.java               @EnableScheduling for cache eviction
@@ -304,9 +303,7 @@ src/test/java/com/demo/upimesh/
 | POST | `/api/mesh/flush` | Bridges with internet upload to backend (parallel) |
 | POST | `/api/mesh/reset` | Clear mesh + idempotency cache |
 | POST | `/api/bridge/ingest` | **The production endpoint.** Real bridges POST here |
-| GET | `/h2-console` | Browse the in-memory database |
 
-H2 console login: JDBC URL `jdbc:h2:mem:upimesh`, username `sa`, no password.
 
 ### Request format for `/api/bridge/ingest`
 
